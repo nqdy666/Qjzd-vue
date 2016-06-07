@@ -31,11 +31,19 @@ exports.getTabStr = (tab, good, top) => {
             case "share":
                 str = "分享";
                 break;
-            case "ask":
-                str = "问答";
+            case "coder":
+                str = "码农";
                 break;
-            case "job":
-                str = "招聘";
+            case "shoot":
+                str = "摄影";
+                break;
+            case "bike":
+                str = "单车";
+            case "talk":
+                str = "聊聊";
+                break;
+            case "love":
+                str = "爱情";
                 break;
             default:
                 str = "暂无";
@@ -62,11 +70,19 @@ exports.getTabClassName = (tab, good, top) => {
             case "share":
                 className = "share";
                 break;
-            case "ask":
-                className = "ask";
+            case "coder":
+                className = "coder";
                 break;
-            case "job":
-                className = "job";
+            case "shoot":
+                className = "shoot";
+                break;
+            case "bike":
+                className = "bike";
+            case "talk":
+                className = "talk";
+                break;
+            case "love":
+                className = "love";
                 break;
             default:
                 className = "default";
@@ -85,11 +101,19 @@ exports.getTitleStr = tab => {
         case "share":
             str = "分享";
             break;
-        case "ask":
-            str = "问答";
+        case "coder":
+            str = "码农";
             break;
-        case "job":
-            str = "招聘";
+        case "shoot":
+            str = "摄影";
+            break;
+        case "bike":
+            str = "单车";
+        case "talk":
+            str = "聊聊";
+            break;
+        case "love":
+            str = "爱情";
             break;
         case "good":
             str = "精华";

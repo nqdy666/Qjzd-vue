@@ -66,7 +66,7 @@
                 }
                 $.ajax({
                     type:'POST',
-                    url:'https://cnodejs.org/api/v1/accesstoken',
+                    url:'https://qjzd.net/api/v1/accesstoken',
                     data:{accesstoken:self.token},
                     dataType: 'json',
                     success:function(res){

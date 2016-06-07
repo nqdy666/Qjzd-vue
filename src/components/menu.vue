@@ -5,8 +5,11 @@
             <li class="icon-quanbu iconfont" v-link="{'name':'list',query:{tab:'all'}}">全部</li>
             <li class="icon-hao iconfont" v-link="{name:'list',query:{tab:'good'}}">精华</li>
             <li class="icon-fenxiang iconfont" v-link="{name:'list',query:{tab:'share'}}">分享</li>
-            <li class="icon-wenda iconfont" v-link="{name:'list',query:{tab:'ask'}}">问答</li>
-            <li class="icon-zhaopin iconfont" v-link="{name:'list',query:{tab:'job'}}">招聘</li>
+            <li class="icon-wenda iconfont" v-link="{name:'list',query:{tab:'coder'}}">码农</li>
+            <li class="icon-zhaopin iconfont" v-link="{name:'list',query:{tab:'shoot'}}">摄影</li>
+            <li class="icon-wenda iconfont" v-link="{name:'list',query:{tab:'bike'}}">单车</li>
+            <li class="icon-zhaopin iconfont" v-link="{name:'list',query:{tab:'talk'}}">聊聊</li>
+            <li class="icon-wenda iconfont" v-link="{name:'list',query:{tab:'love'}}">爱情</li>
             <li class="icon-xiaoxi iconfont line" v-link="{name:'message'}" class="line">消息</li>
             <li class="icon-about iconfont" v-link="{name:'about'}">关于</li>
         </ul>

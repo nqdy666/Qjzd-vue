@@ -6,8 +6,11 @@
         <div class="line">选择分类：
             <select class="add-tab" v-model="topic.tab">
                 <option value="share">分享</option>
-                <option value="ask">问答</option>
-                <option value="job">招聘</option>
+                <option value="coder">码农</option>
+                <option value="shoot">摄影</option>
+                <option value="bike">单车</option>
+                <option value="talk">聊聊</option>
+                <option value="love">爱情</option>
             </select>
             <a class="add-btn" @click="addTopic">发布</a>
         </div>
@@ -66,7 +69,7 @@
                 self.topic.content = self.topic.content+self.authorTxt;
                 $.ajax({
                     type:'POST',
-                    url:'https://cnodejs.org/api/v1/topics',
+                    url:'https://qjzd.net/api/v1/topics',
                     data: self.topic,
                     dataType: 'json',
                     success:function(res){

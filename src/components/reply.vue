@@ -51,7 +51,7 @@
                     }
                     $.ajax({
                         type:'POST',
-                        url:'https://cnodejs.org/api/v1/topic/'+_self.topicId+'/replies',
+                        url:'https://qjzd.net/api/v1/topic/'+_self.topicId+'/replies',
                         data: postData,
                         dataType: 'json',
                         success:function(res){

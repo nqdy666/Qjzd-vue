@@ -50,7 +50,7 @@
         route:{
             data (transition){
                 let _self = this;
-                $.get('https://cnodejs.org/api/v1/messages?accesstoken='+_self.token,function(d){
+                $.get('https://qjzd.net/api/v1/messages?accesstoken='+_self.token,function(d){
                     if(d && d.data){
                         _self.message = d.data;
                         if(d.data.hasnot_read_messages.length > 0){
@@ -77,7 +77,7 @@
             },
             //标记所有为已读
             markall (){
-                $.post('https://cnodejs.org/api/v1/message/mark_all',{accesstoken:localStorage.token},
+                $.post('https://qjzd.net/api/v1/message/mark_all',{accesstoken:localStorage.token},
                     function(d){
                     if(d && d.success){
                         window.location.reload();

@@ -115,7 +115,7 @@
         methods:{
             getTopics (searchKey){
                 let params = $.param(this.searchKey);
-                $.get('https://cnodejs.org/api/v1/topics?'+params,(d)=> {
+                $.get('https://qjzd.net/api/v1/topics?'+params,(d)=> {
                     this.scroll = true;
                     if(d && d.data){
                         this.topics = d.data;

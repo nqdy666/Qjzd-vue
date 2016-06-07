@@ -48,7 +48,7 @@
                 let _self = this;
                 let loginname = transition.to.params.loginname;
 
-                $.get('https://cnodejs.org/api/v1/user/'+loginname,function(d){
+                $.get('https://qjzd.net/api/v1/user/'+loginname,function(d){
                     if(d && d.data){
                         let data = d.data;
                         _self.user = data;
