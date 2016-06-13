@@ -3,6 +3,7 @@
 var path = require('path');
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin")
 var isProduction = function() {
     return process.env.NODE_ENV === 'production';
 }
@@ -19,12 +20,22 @@ var plugins = [
     // 使用 ProvidePlugin 加载使用率高的依赖库
     new webpack.ProvidePlugin({
       $: 'webpack-zepto'
+    }),
+    new HtmlWebpackPlugin({
+        template: './src/templates/index.tmpl',
+        hash: false,
+        //favicon: paths.client('static/favicon.ico'),
+        filename: 'index.html',
+        inject: 'body'
+        //minify: {
+        //    collapseWhitespace: true
+        //}
     })
 ];
 var entry = ['./src/main'],
     cdnPrefix = "",
     buildPath = "/dist/",
-    publishPath = cdnPrefix + buildPath;
+    publishPath = cdnPrefix;
 //生产环境js压缩和图片cdn
 if (isProduction()) {
     //plugins.push(new webpack.optimize.UglifyJsPlugin());
