@@ -4,21 +4,19 @@
   "description": "用Vue.js重写Qjzd社区",
   "main": "index.html",
   "scripts": {
-    "dev": "webpack --progress --profile --colors",
-    "dist": "NODE_ENV=development gulp",
-    "build": "NODE_ENV=production gulp",
-    "watch": "webpack-dev-server --hot --inline --progress --colors",
+    "build": "better-npm-run build",
+    "deploy": "better-npm-run deploy",
     "server": "node server.js",
     "test": "karma start karma.conf.js --single-run"
   },
   "betterScripts": {
-    "dist": {
+    "build": {
       "command": "gulp",
       "env": {
         "NODE_ENV": "development"
       }
     },
-    "build": {
+    "deploy": {
       "command": "gulp",
       "env": {
         "NODE_ENV": "production"
