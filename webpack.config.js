@@ -10,7 +10,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 //webpack插件
 var plugins = [
     //提公用js到common.js文件中
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.CommonsChunkPlugin('common.[chunkhash].js'),
     //将样式统一发布到style.css中
     new ExtractTextPlugin("style.css", {
         allChunks: true,
@@ -36,7 +36,16 @@ var entry = ['./src/main'],
     publishPath = cdnPrefix;
 //生产环境js压缩和图片cdn
 if (isProduction) {
-    plugins.push(new webpack.optimize.UglifyJsPlugin());
+    plugins.push(
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            unused: true,
+            dead_code: true,
+            warnings: false
+        }
+    }));
     cdnPrefix = "";
     publishPath = cdnPrefix;
 }
@@ -46,7 +55,7 @@ module.exports = {
     entry: entry,
     output: {
         path: __dirname + buildPath,
-        filename: 'build.js',
+        filename: 'build.[chunkhash].js',
         publicPath: publishPath,
         chunkFilename:"[id].[chunkhash].js"
     },
