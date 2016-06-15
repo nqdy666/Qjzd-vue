@@ -12,6 +12,7 @@ var cdnPrefix = '';
 var buildPath = '/dist/';
 var publishPath = cdnPrefix;
 var devtool = '#source-map';
+var hashType = 'hash';
 var htmlWebpackPluginConfig = {
     template: './src/templates/index.tmpl',
     hash: false,
@@ -24,7 +25,8 @@ var htmlWebpackPluginConfig = {
 if (__PRODUCT__) {
     cdnPrefix = '';
     publishPath = cdnPrefix;
-    devtool = ''
+    devtool = '';
+    hashType = 'chunkhash';
     htmlWebpackPluginConfig.minify = {
         collapseWhitespace: true
     }
@@ -35,9 +37,9 @@ var webpackConfig = {
     entry: ['./src/main'],
     output: {
         path: __dirname + buildPath,
-        filename: 'build.[chunkhash].js',
+        filename: 'build.[' + hashType + '].js',
         publicPath: publishPath,
-        chunkFilename:'[id].[chunkhash].js'
+        chunkFilename:'[id].[' + hashType + '].js'
     },
     module: {
         loaders: [{
@@ -86,9 +88,9 @@ var webpackConfig = {
     },
     plugins: [
         //提公用js到common.js文件中
-        new webpack.optimize.CommonsChunkPlugin('common.[chunkhash].js'),
+        new webpack.optimize.CommonsChunkPlugin('common.[' + hashType + '].js'),
         //将样式统一发布到style.css中
-        new ExtractTextPlugin('style.[chunkhash].css', {
+        new ExtractTextPlugin('style.[' + hashType + '].css', {
             allChunks: true,
             disable: false
         }),
