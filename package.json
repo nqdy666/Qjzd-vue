@@ -4,6 +4,7 @@
   "description": "用Vue.js重写Qjzd社区",
   "main": "index.html",
   "scripts": {
+    "clean": "gulp clean",
     "webpack": "webpack --progress --profile --colors",
     "debug": "http-server ./dist",
     "build": "better-npm-run build",

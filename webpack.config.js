@@ -53,6 +53,7 @@ if (__PRODUCT__) {
     publishPath = cdnPrefix;
     devtool = ''
 }
+
 //编译输出路径
 module.exports = {
     debug: true,
