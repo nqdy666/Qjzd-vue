@@ -24,6 +24,7 @@ var plugins = [
     new HtmlWebpackPlugin({
         template: './src/templates/index.tmpl',
         hash: false,
+        favicon: path.join(__dirname, 'src/assets/images/favicon.ico'),
         filename: 'index.html',
         inject: 'body'
         //minify: {
