@@ -4,6 +4,7 @@ var path = require('path');
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin")
+var cssnano = require('cssnano')
 
 var isProduction = process.env.NODE_ENV === 'production';
 
@@ -66,11 +67,11 @@ module.exports = {
         }, {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract(
-                "style-loader", 'css-loader?sourceMap!sass-loader!cssnext-loader')
+                "style-loader", 'css-loader?sourceMap!postcss-loader!resolve-url-loader!sass-loader?sourceMap')
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
-                "style-loader", "css-loader?sourceMap!cssnext-loader")
+                "style-loader", "css-loader?sourceMap!postcss-loader")
         }, {
             test: /\.js$/,
             exclude: /node_modules|vue\/dist/,
@@ -96,6 +97,20 @@ module.exports = {
         presets: ['es2015', 'stage-0'],
         plugins: ['transform-runtime']
     },
+    postcss: [
+        cssnano({
+            sourcemap: true,
+            autoprefixer: {
+                add: true,
+                remove: true,
+                browsers: ['last 2 versions']
+            },
+            safe: true,
+            discardComments: {
+                removeAll: true
+            }
+        })
+    ],
     resolve: {
         // require时省略的扩展名，如：require('module') 不需要module.js
         extension: ['', '.js'],
