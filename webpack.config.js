@@ -58,6 +58,9 @@ if (__PRODUCT__) {
 //编译输出路径
 module.exports = {
     debug: true,
+    //progress: true,
+    //profile: true,
+    //colors: true,
     entry: ['./src/main'],
     output: {
         path: __dirname + buildPath,

@@ -5,22 +5,22 @@
   "main": "index.html",
   "scripts": {
     "clean": "gulp clean",
+    "start": "node server.js",
     "webpack": "webpack --progress --profile --colors",
-    "debug": "http-server ./dist",
     "build": "better-npm-run build",
     "deploy": "better-npm-run deploy",
-    "server": "node server.js",
+    "debug": "http-server ./dist",
     "test": "karma start karma.conf.js --single-run"
   },
   "betterScripts": {
     "build": {
-      "command": "gulp",
+      "command": "npm run clean && npm run webpack",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "deploy": {
-      "command": "gulp",
+      "command": "npm run clean && npm run webpack",
       "env": {
         "NODE_ENV": "production"
       }
