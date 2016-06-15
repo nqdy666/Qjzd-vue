@@ -6,14 +6,14 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 var cssnano = require('cssnano')
 
-var isProduction = process.env.NODE_ENV === 'production';
+var __PRODUCT__ = process.env.NODE_ENV === 'production';
 
 //webpack插件
 var plugins = [
     //提公用js到common.js文件中
     new webpack.optimize.CommonsChunkPlugin('common.[chunkhash].js'),
     //将样式统一发布到style.css中
-    new ExtractTextPlugin("style.css", {
+    new ExtractTextPlugin("style.[chunkhash].css", {
         allChunks: true,
         disable: false
     }),
@@ -31,12 +31,14 @@ var plugins = [
         //}
     })
 ];
-var entry = ['./src/main'],
-    cdnPrefix = "",
-    buildPath = "/dist/",
-    publishPath = cdnPrefix;
+
+var cdnPrefix = '';
+var buildPath = '/dist/';
+var publishPath = cdnPrefix;
+var devtool = '#source-map';
+
 //生产环境js压缩和图片cdn
-if (isProduction) {
+if (__PRODUCT__) {
     plugins.push(
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.optimize.DedupePlugin(),
@@ -49,11 +51,12 @@ if (isProduction) {
     }));
     cdnPrefix = "";
     publishPath = cdnPrefix;
+    devtool = ''
 }
 //编译输出路径
 module.exports = {
     debug: true,
-    entry: entry,
+    entry: ['./src/main'],
     output: {
         path: __dirname + buildPath,
         filename: 'build.[chunkhash].js',
@@ -120,5 +123,5 @@ module.exports = {
         }
     },
     plugins: plugins,
-    devtool: '#source-map'
+    devtool: devtool
 };
