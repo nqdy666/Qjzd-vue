@@ -67,34 +67,34 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.vue$/,
-            loader: 'vue-loader',
+            loader: 'vue',
         }, {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract(
-                "style-loader", 'css-loader?sourceMap!postcss-loader!resolve-url-loader!sass-loader?sourceMap')
+                "style", 'css?sourceMap!postcss!resolve-url!sass?sourceMap')
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract(
-                "style-loader", "css-loader?sourceMap!postcss-loader")
+                "style", "css?sourceMap!postcss")
         }, {
             test: /\.js$/,
             exclude: /node_modules|vue\/dist/,
             loader: 'babel'
         },{
             test: /\.(jpg|png|gif)$/,
-            loader: "file-loader?name=images/[hash].[ext]"
+            loader: "file?name=images/[hash].[ext]"
         }, {
             test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: "url-loader?limit=10000&minetype=application/font-woff"
+            loader: "url?limit=10000&minetype=application/font-woff"
         }, {
             test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: "file-loader"
+            loader: "file"
         }, {
             test: /\.json$/,
             loader: 'json'
         }, {
             test: /\.(html|tpl)$/,
-            loader: 'html-loader'
+            loader: 'html'
         }]
     },
     babel: {
