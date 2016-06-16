@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+#参数判断
+if [ -z "$1" ]
+then
+    echo "请输入git commit message"
+    exit
+fi
+
+# 切换到gh-pages分支
+git checkout gh-pages
+
+# 准备删除的文件
+del_file_arr=(
+    '*.*.js'
+    '*.*.js.map'
+    '*.*.css'
+    '*.*.css.map'
+    'favicon.ico'
+    'index.html'
+    'images'
+)
+
+# 遍历gh-pages中旧的web服务相关文件
+for file in ${del_file_arr[@]}
+do
+    rm -rfv $file
+done
+
+# 把dist目录下的文件拷贝过来
+cp -vr ./dist/* ./
+
+# 添加在git暂存区
+git add .
+
+# 提交
+git commit -m $1
+
+# push to github
+git push origin gh-pages
+
+# 切换回master分支
+git checkout master
