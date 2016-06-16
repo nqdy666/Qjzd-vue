@@ -40,10 +40,10 @@ do
 done
 
 # 提交
-git commit -m $1
+#git commit -m $1
 
 # push to github
-git push origin gh-pages
+#git push origin gh-pages
 
 # 切换回master分支
-git checkout master
+#git checkout master
