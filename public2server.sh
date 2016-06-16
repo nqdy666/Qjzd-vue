@@ -9,6 +9,10 @@ fi
 
 # 切换到gh-pages分支
 git checkout gh-pages
+if [ $? -ne 0 ]
+then
+    exit
+fi
 
 # 准备删除的文件
 del_file_arr=(
@@ -40,10 +44,21 @@ do
 done
 
 # 提交
-#git commit -m $1
-
+git commit -m $1
+if [ $? -ne 0 ]
+then
+    exit
+fi
 # push to github
-#git push origin gh-pages
+git push origin gh-pages
+if [ $? -ne 0 ]
+then
+    exit
+fi
 
 # 切换回master分支
-#git checkout master
+git checkout master
+if [ $? -ne 0 ]
+then
+    exit
+fi
