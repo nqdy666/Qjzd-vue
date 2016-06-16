@@ -56,10 +56,4 @@ then
     exit
 fi
 
-# 切换回master分支
-git checkout master
-if [ $? -ne 0 ]
-then
-    exit
-fi
 exit
