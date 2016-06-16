@@ -49,6 +49,7 @@ if [ $? -ne 0 ]
 then
     exit
 fi
+
 # push to github
 git push origin gh-pages
 if [ $? -ne 0 ]
