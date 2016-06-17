@@ -1,6 +1,6 @@
 {
   "name": "Vue-Qjzd",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "用Vue.js重写Qjzd社区",
   "main": "index.html",
   "scripts": {
