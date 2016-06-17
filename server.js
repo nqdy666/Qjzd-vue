@@ -13,16 +13,18 @@ var proxy = [{
     target: "https://qjzd.net",
     host: "qjzd.net"
 }]
+
+//https://github.com/webpack/webpack-dev-middleware
 //启动服务
 var app = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot:true,
     historyApiFallback: true,
     proxy:proxy,
-    noInfo: false,
-    quiet: false,
+    noInfo: false, // display no info to console (only warnings and errors)
+    quiet: false, // display nothing to the console
     stats: {
-        colors: true
+        colors: true // console with color
     }
 });
 app.listen(8080);
