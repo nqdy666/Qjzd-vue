@@ -5,18 +5,18 @@
     <dl class="about-info">
 
         <dt>关于项目</dt>
-        <dd>该项目是基于Cnodejs的api，采用vue.js重写的webapp。</dd>
+        <dd>该项目是基于<a href="https://qjzd.net/api">秦晋之巅社区</a>的api，采用vue.js重写的webapp。</dd>
     
         <dt>源码地址</dt>
         
         <dd>
-            <a href="https://github.com/shinygang/Vue-cnodejs">
-                https://github.com/shinygang/Vue-cnodejs</a>
+            <a href="https://github.com/nqdy666/Qjzd-vue</a>">
+                https://github.com/nqdy666/Qjzd-vue</a>
         </dd>
         
         <dt>意见反馈</dt>
         <dd>
-            <a href="https://github.com/shinygang/Vue-cnodejs/issues">
+            <a href="https://github.com/nqdy666/Qjzd-vue/issues">
                 发表意见或者提需求</a>
         </dd>
         
