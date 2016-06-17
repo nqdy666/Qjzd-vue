@@ -16,7 +16,7 @@ npm install
 启动服务(http://localhost:8080)
 
 ```
-node server.js
+npm start
 ```
 发布代码
 ```
