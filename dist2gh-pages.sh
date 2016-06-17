@@ -7,6 +7,9 @@ then
     exit
 fi
 
+#发布到dist
+npm run deploy
+
 # 切换到gh-pages分支
 git checkout gh-pages
 if [ $? -ne 0 ]
