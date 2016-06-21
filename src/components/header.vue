@@ -1,25 +1,35 @@
 <template>
-    <div class="page-cover"
-            v-if="showMenu&&fixHead"
-            @click="showMenus">
-    </div>
-    <header :class="{'show':showMenu&&fixHead,'fix-header':fixHead,'no-fix':!fixHead}" id="hd">
-        <div class="nv-toolbar">
-            <div class="toolbar-nav"
-                    @click="openMenu"
-                    v-if="fixHead">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#"><img alt height="50px" src="https://qjzd.net/public/images/qjzd-logo.png"/></a>
             </div>
-            <span v-text="pageType"></span>
-            <i class="num" v-if="messageCount > 0"> {{messageCount}}</i>
-            <i v-if="needAdd" v-show="!messageCount || messageCount <= 0"
-                class="iconfont add-icon" v-link="{name:'add'}">&#xe60f;</i>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">全部</a></li>
+                    <li><a href="#">精华</a></li>
+                    <li><a href="#">分享</a></li>
+                    <li><a href="#">问答</a></li>
+                    <li><a href="#">码农</a></li>
+                    <li><a href="#">摄影</a></li>
+                    <li><a href="#">单车</a></li>
+                    <li><a href="#">爱情</a></li>
+                    <li><a href="#">聊聊</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
         </div>
-    </header>
-    <nv-menu :show-menu="showMenu"
-            :page-type="pageType"
-            :nick-name="nickname"
-            :profile-url="profileimgurl"
-            v-if="fixHead" ></nv-menu>
+    </nav>
 </template>
 
 <script>
